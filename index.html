@@ -1,0 +1,21 @@
+<h1 style="margin: 0in; font-family: Calibri; font-size: 16.0pt; color: #1e4e79;">Portable Executable File Format</h1>
+<h2 style="margin: 0in; font-family: Calibri; font-size: 14.0pt; color: #2e75b5;">Introduction</h2>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">File format for executable/DLL files introduced in Windows NT. It's based on COFF (Common Object File Format) Specification.</p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">&nbsp;</p>
+<ul style="margin-left: .375in; direction: ltr; unicode-bidi: embed; margin-top: 0in; margin-bottom: 0in;" type="disc">
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">To remain compatible with previous versions of the MS-DOS and Windows, the PE file format retains the old MZ header from MS-DOS.</span></li>
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">WINNT.H - Many definitions of individual file components.</span></li>
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">MS-DOS MZ Header &gt; real-mode stub program, PE file signature, PE file header, the PE optional header &gt; all the section headers &gt; all section bodies.</span></li>
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">Optional Header- ends with an array of data directory entries that are relative virtual addresses to data directories contained within section bodies. </span></li>
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">11 predefined sections. But each application can define its own unique sections for code and data.</span></li>
+<li style="margin-top: 0; margin-bottom: 0; vertical-align: middle;"><span style="font-family: Calibri; font-size: 11.0pt;">.debug predefined section - can be stripped from the file into a separate debug file. In this case, a special debug header is used to parse the debug file, and a flag is specified in the PE file header to indicate debug data is stripped.</span></li>
+</ul>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">&nbsp;</p>
+<h2 style="margin: 0in; font-family: Calibri; font-size: 14.0pt; color: #2e75b5;">Structure of PE file</h2>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">&nbsp;</p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;"><span style="font-weight: bold;">Figure 1: Structure of a Portable Executable file image</span></p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">&nbsp;</p>
+<h3 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #1f3763;"><span style="font-weight: bold;">MS-DOS/Read-Mode Header</span></h3>
+<h3 style="margin: 0in; font-family: Calibri; font-size: 12.0pt; color: #1f3763;">The first component is the MS-DOS header.</h3>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">The main reason for keeping the same structure so that when you attempt to load a file created under Windows version 3.1 or earlier, the operating system can read the file and understand it's not compatible.</p>
+<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">The MS-DOS header occupies the first 64 bytes of a PE file.</p>
