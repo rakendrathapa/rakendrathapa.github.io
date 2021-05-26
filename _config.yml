@@ -30,7 +30,7 @@ twitter_username: ralados
 github_username:  rakendrathapa
 
 # Build settings
-theme: minima
+theme: just-the-docs
 plugins:
   - jekyll-feed
 
