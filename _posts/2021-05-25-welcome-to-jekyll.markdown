@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Everything about WinPE"
 date:   2021-05-25 23:15:35 +0530
 categories: jekyll update
 ---
